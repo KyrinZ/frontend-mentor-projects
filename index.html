@@ -6,25 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <title>Frontend Mentors Projects</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: rgb(172, 253, 237);
+      }
+
+      ul {
+        list-style: none;
+        max-height: 70vh;
+        overflow-y: scroll;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      ul::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        display: flex;
+      }
+
+      a {
+        border-radius: 0.3rem;
+        text-decoration: none;
+
+        font-weight: 600;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 0.5rem;
+        transition: 0.5s ease;
+        background-color: white;
+        color: black;
+      }
+      a:hover {
+        background-color: rgb(21 67 58);
+        color: white;
+      }
+      a::after {
+        content: "►";
+      }
+    </style>
   </head>
   <body>
     <main>
       <nav>
-        <ul>
-          <li><a href="/four-card-feature">four-card-feature</a></li>
-          <li><a href="/huddle-landing-page">huddle-landing-page</a></li>
-          <li>
-            <a href="/interactive-rating-component"
-              >interactive-rating-component</a
-            >
-          </li>
-          <li>
-            <a href="/single-price-grid-component"
-              >single-price-grid-component</a
-            >
-          </li>
-        </ul>
+        <ul></ul>
       </nav>
     </main>
+
+    <script>
+      const PAGES = [
+        "four-card-feature",
+        "huddle-landing-page",
+        "interactive-rating-component",
+        "single-price-grid-component",
+      ];
+
+      function setUpLinks() {
+        const ul = document.querySelector("ul");
+
+        PAGES.forEach((i) => {
+          const li = document.createElement("li");
+
+          const a = document.createElement("a");
+          a.href = createHref(i);
+          a.innerText = createText(i);
+
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+      }
+
+      function createHref(uri) {
+        return window.location.origin + window.location.pathname + uri;
+      }
+
+      function createText(text) {
+        return text
+          .split("-")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+      }
+
+      window.onload = () => {
+        setUpLinks();
+      };
+    </script>
   </body>
 </html>
