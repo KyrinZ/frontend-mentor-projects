@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Single Price Grid Component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        background-color: hsl(204, 43%, 93%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        font-family: "Karla", sans-serif;
+        font-weight: 400;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        background-color: hsl(0, 0%, 100%);
+        width: 90%;
+        max-width: 66rem;
+        border-radius: 0.8rem;
+        overflow: hidden;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      .top-section {
+        padding: 4.2rem;
+      }
+      .top-section h2,
+      .top-section h3 {
+        font-weight: 700;
+      }
+      .top-section h2 {
+        font-size: 2.4rem;
+        margin-bottom: 2.6rem;
+        color: hsl(179, 62%, 43%);
+      }
+      .top-section h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: hsl(71, 73%, 54%);
+      }
+      .top-section p {
+        line-height: 2.5rem;
+        color: hsl(218, 22%, 67%);
+      }
+      .bottom-section {
+        display: flex;
+        flex-direction: column;
+      }
+      .bottom-section-left,
+      .bottom-section-right {
+        padding: 3.2rem;
+        flex: 1;
+        color: hsl(0, 0%, 100%);
+      }
+
+      .bottom-section-left {
+        background-color: hsl(179, 62%, 43%);
+      }
+      .bottom-section-right {
+        background-color: hsl(179, 46%, 53%);
+      }
+
+      .bottom-section-left h4,
+      .bottom-section-right h4 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        font-weight: 700;
+      }
+      .price {
+        color: hsl(177, 61%, 66%);
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      .price span {
+        font-size: 4rem;
+        font-weight: 700;
+        color: hsl(0, 0%, 100%);
+        margin-right: 1.5rem;
+      }
+
+      .bottom-section-left button {
+        width: 100%;
+        padding: 1.6rem;
+        border-radius: 0.6rem;
+        border: none;
+        color: hsl(0, 0%, 100%);
+        background-color: hsl(71, 73%, 54%);
+        font-weight: 700;
+        font-size: 1.8rem;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+          rgba(17, 17, 26, 0.1) 0px 8px 24px,
+          rgba(17, 17, 26, 0.1) 0px 16px 48px;
+        cursor: pointer;
+        transition: all 350ms ease;
+      }
+
+      .bottom-section-left button:hover {
+        scale: 0.97;
+        background-color: hsl(71, 73%, 64%);
+      }
+
+      .bottom-section-right p {
+        color: hsl(183, 98%, 83%);
+        line-height: 2.2rem;
+      }
+      .show-on-desktop {
+        display: none;
+      }
+
+      @media (min-width: 712px) {
+        .show-on-desktop {
+          display: block;
+        }
+        .bottom-section {
+          flex-direction: row;
+        }
+
+        .bottom-section-left,
+        .bottom-section-right {
+          padding: 4.2rem;
+        }
+      }
+
+      footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="top-section">
+        <h2>Join our community</h2>
+        <h3>30-day, hassle-free money back guarantee</h3>
+        <p>
+          Gain access to our full library of tutorials along with expert code
+          reviews.<br class="show-on-desktop" />
+          Perfect for any developers who are serious about honing their skills.
+        </p>
+      </div>
+      <div class="bottom-section">
+        <div class="bottom-section-left">
+          <h4>Monthly Subscription</h4>
+          <p class="price"><span>&dollar;29</span> per month</p>
+          <p style="margin-bottom: 3rem">
+            Full access for less than &dollar;1 a day
+          </p>
+          <button>Sign Up</button>
+        </div>
+        <div class="bottom-section-right">
+          <h4>Why Us</h4>
+          <p>
+            Tutorials by industry experts<br />
+            Peer &amp; expert code review<br />
+            Coding exercises<br />
+            Access to our GitHub repos<br />
+            Community forum<br />
+            Flashcard decks<br />
+            New videos every week
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.linkedin.com/in/bayajitmohammed/">KyrinZ</a>.
+      </p>
+    </footer>
+  </body>
+</html>

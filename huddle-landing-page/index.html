@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script
+      src="https://kit.fontawesome.com/a6169de16b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>
+      Frontend Mentor | Huddle landing page with single introductory section
+    </title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      /* .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); } */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        /* font-family: 'Open Sans', sans-serif; */
+        font-family: "Open Sans", sans-serif;
+        background-color: hsl(257, 40%, 49%);
+        font-size: 1.6rem;
+
+        background-image: url(./images/bg-mobile.svg);
+        width: 100%;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* background-position: center; */
+        padding: 4rem;
+        max-width: 375px;
+        margin: auto;
+        position: relative;
+      }
+
+      main {
+        display: flex;
+        padding-top: 7rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo {
+        width: 12rem;
+      }
+      .image-content {
+        width: 100%;
+      }
+
+      .text-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+
+      .text-content-wrapper {
+        padding-top: 7rem;
+        padding-bottom: 0;
+      }
+      .text-content h1 {
+        margin-bottom: 2.9rem;
+        line-height: 1.5em;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 2.6rem;
+      }
+      .text-content p {
+        margin-bottom: 2.6rem;
+        line-height: 1.6em;
+        font-size: 1.7rem;
+      }
+      .text-content button {
+        border: none;
+        cursor: pointer;
+        background-color: white;
+        border-radius: 9em;
+        width: fit-content;
+        padding: 1.7rem 7.6rem;
+        font-size: 1.3rem;
+        box-shadow: 0px 7px 9px #00000054;
+        transition: background-color 350ms ease, color 350ms ease;
+      }
+
+      .socials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1.6rem;
+        margin-top: 6.4rem;
+      }
+      .socials i {
+        height: 4rem;
+        width: 4rem;
+        line-height: 2rem;
+        font-size: 1.9rem;
+        color: white;
+        border: 2px solid white;
+        border-radius: 2em;
+        padding: 0.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: border 350ms ease, color 350ms ease;
+      }
+
+      @media (hover: hover) {
+        .text-content button:hover {
+          background-color: hsl(300, 69%, 71%);
+          color: white;
+        }
+
+        .socials i:hover {
+          color: hsl(300, 69%, 71%);
+          border: 2px solid hsl(300, 69%, 71%);
+        }
+      }
+      @media (hover: none) {
+        .text-content button:active {
+          background-color: hsl(300, 69%, 71%);
+          color: white;
+        }
+
+        .socials i:hover {
+          color: hsl(300, 69%, 71%);
+          border: 2px solid hsl(300, 69%, 71%);
+        }
+      }
+
+      .mobile-only {
+        display: block;
+      }
+      @media (min-width: 1235px) {
+        .mobile-only {
+          display: none;
+        }
+        body {
+          background-image: url(./images/bg-desktop.svg);
+          padding: 8rem;
+          padding-top: 6rem;
+          padding-bottom: 2rem;
+          max-width: 1440px;
+        }
+
+        .logo {
+          width: 20rem;
+        }
+        main {
+          padding-top: 9.5rem;
+          flex-direction: row;
+        }
+
+        .image-content {
+          width: 69.7rem;
+        }
+
+        .text-content {
+          /* padding: 7rem; */
+          text-align: start;
+          align-items: flex-start;
+        }
+
+        .text-content-wrapper {
+          padding: 5.9rem;
+          padding-top: 4.9rem;
+          padding-bottom: 0;
+        }
+
+        .text-content h1 {
+          margin-bottom: 2.7rem;
+          font-size: 4.2rem;
+        }
+        .text-content p {
+          margin-bottom: 2.7rem;
+          font-size: 1.9rem;
+        }
+
+        .text-content button {
+          padding: 1.9rem 6.4rem;
+          font-size: 2.3rem;
+        }
+
+        .socials {
+          justify-content: flex-end;
+          margin-top: 2.4rem;
+        }
+      }
+
+      .attribution {
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0.5rem;
+      }
+      .attribution a {
+        color: #0d6efd;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="logo" src="./images/logo.svg" alt="Logo" />
+    <main>
+      <img
+        class="image-content"
+        src="./images/illustration-mockups.svg"
+        alt=""
+      />
+      <div class="text-content">
+        <div class="text-content-wrapper">
+          <h1>
+            Build The Community <br class="mobile-only" />Your Fans Will Love
+          </h1>
+          <p>
+            Huddle re-imagines the way we build communities. You have a voice,
+            but so does your audience. Create connections with your users as you
+            engage in genuine discussion.
+          </p>
+          <button>Register</button>
+        </div>
+      </div>
+    </main>
+
+    <div class="socials">
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.linkedin.com/in/bayajitmohammed/">KyrinZ</a>.
+      </p>
+    </footer>
+  </body>
+</html>

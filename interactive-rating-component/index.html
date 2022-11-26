@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Overpass", sans-serif;
+        font-size: 1.5rem;
+        background-color: hsl(216, 12%, 8%);
+        color: hsl(216, 12%, 54%);
+        position: relative;
+      }
+
+      main {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        width: 100%;
+        border: none;
+        background-color: hsl(25, 97%, 53%);
+        color: hsl(0, 0%, 100%);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        padding: 1.6rem;
+        border-radius: 15em;
+        margin-bottom: 1rem;
+        transition-property: background-color, color;
+        transition-duration: 350ms;
+        transition-timing-function: ease;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: hsl(0, 0%, 100%);
+        color: hsl(25, 97%, 53%);
+      }
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2.5rem;
+      }
+
+      ul li {
+        --t: 16vw;
+        aspect-ratio: 1/1;
+        height: min(4.8rem, var(--t));
+        line-height: min(4.8rem, var(--t));
+        text-align: center;
+        background-color: hsl(213, 19%, 18%);
+        border-radius: 100%;
+        font-size: 1.8rem;
+        cursor: pointer;
+
+        transition-property: background-color, color;
+        transition-duration: 350ms;
+        transition-timing-function: ease;
+      }
+      ul li.selected {
+        background-color: hsl(217, 12%, 63%);
+        color: hsl(0, 0%, 100%);
+      }
+      ul li:hover {
+        background-color: hsl(25, 97%, 53%);
+        color: hsl(0, 0%, 100%);
+      }
+      h3 {
+        font-size: 2.7rem;
+        color: hsl(0, 0%, 100%);
+        margin-bottom: 1.7rem;
+      }
+      p {
+        line-height: 1.5em;
+      }
+
+      .card {
+        width: min(100%, 41.4rem);
+        margin-inline: auto;
+        padding: 2.8rem;
+        background: linear-gradient(180deg, #222933 0%, #171f2a 100%);
+        background-blend-mode: normal;
+        border-radius: 1.5rem;
+      }
+
+      .card.card--center {
+        text-align: center;
+        padding: 3.3rem;
+      }
+
+      .star-icon {
+        width: 4.8rem;
+        height: 4.8rem;
+        border-radius: 100%;
+        padding: 1.5rem;
+        background-color: hsl(213, 19%, 18%);
+        margin-bottom: 3.8rem;
+      }
+      .star-icon img {
+        width: 100%;
+        vertical-align: middle;
+      }
+
+      .illustration {
+        height: min(11rem, 36vw);
+        margin-bottom: 3rem;
+      }
+
+      .result-text {
+        padding-inline: 1.5rem;
+        padding-block: 0.5rem;
+        border-radius: 15em;
+        width: fit-content;
+        color: hsl(25, 97%, 53%);
+        background-color: hsl(213, 19%, 18%);
+        margin-inline: auto;
+        margin-bottom: 2rem;
+      }
+
+      .fade-in {
+        animation: fadein 700ms ease forwards;
+      }
+
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+          transform: translateY(-100px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .attribution {
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0.5rem;
+      }
+      .attribution a {
+        color: #0d6efd;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card fade-in" id="rate-card">
+        <div class="star-icon">
+          <img src="./images/icon-star.svg" alt="" />
+        </div>
+        <h3>How did we do?</h3>
+        <p style="margin-bottom: 2.7rem">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+
+        <ul>
+          <li class="rate">1</li>
+          <li class="rate">2</li>
+          <li class="rate">3</li>
+          <li class="rate">4</li>
+          <li class="rate">5</li>
+        </ul>
+        <button id="submit">Submit</button>
+      </div>
+
+      <div
+        class="card card--center fade-in"
+        style="display: none"
+        id="result-card"
+      >
+        <img
+          class="illustration"
+          src="./images/illustration-thank-you.svg"
+          alt=""
+        />
+        <div class="result-text">
+          <p>You selected <span id="chosen-rating"></span> out of 5</p>
+        </div>
+        <h3>Thank you!</h3>
+        <p style="margin-bottom: 2.1rem">
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don&#8217;t hesitate to get in touch!
+        </p>
+      </div>
+    </main>
+    <p class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.linkedin.com/in/bayajitmohammed/">KyrinZ</a>.
+    </p>
+    <script>
+      let selectedRate = null;
+
+      const rateCard = document.querySelector("#rate-card");
+      const resultCard = document.querySelector("#result-card");
+      const submit = document.querySelector("#submit");
+      const chosenRatingOutput = document.querySelector("#chosen-rating");
+
+      const rates = document.querySelectorAll(".rate");
+
+      submit.onclick = () => {
+        if (!selectedRate) return;
+        chosenRatingOutput.innerText = selectedRate;
+        rateCard.style.display = "none";
+        resultCard.style.display = "block";
+      };
+
+      rates.forEach((el) => {
+        el.onclick = () => {
+          removeSelection();
+          el.classList.add("selected");
+          selectedRate = parseInt(el.innerText);
+        };
+      });
+
+      function removeSelection() {
+        rates.forEach((el) => {
+          el.classList.remove("selected");
+        });
+      }
+    </script>
+  </body>
+</html>
